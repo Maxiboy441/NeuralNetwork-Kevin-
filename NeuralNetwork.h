@@ -62,8 +62,14 @@ public:
 
 	void display_human();
 
+	bool save(const std::string& filename);
+	bool load(const std::string& filename);
+
 private:
 	size_t m_nLayers;
 	std::vector<Layer> m_layers;
 
+	void save_layer(const Layer& layer, std::ofstream& file);
+	void load_layer(Layer& layer, std::ifstream& file);
+	void load_weights(std::vector<float>& weights, std::ifstream& file);
 };

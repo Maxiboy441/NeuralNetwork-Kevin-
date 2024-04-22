@@ -8,15 +8,12 @@
 #include <map>
 #include <numeric>
 #include <cmath>
-#include <fstream>
-#include <string>
 #include "NeuralNetwork.h"
 
 std::vector<std::vector<float>> load_csv_data(std::string filename);
 std::vector<float> evaluate_network(std::vector<std::vector<float>> dataset, int n_folds, float l_rate, int n_epoch, int n_hidden);
 float accuracy_metric(std::vector<int> expect, std::vector<int> predict);
 
-Network* network;
 
 /*
 * This main function will load a csv-dataset and normalize the data. Subsequently, a network 
@@ -29,9 +26,6 @@ Network* network;
 * (See at the bottom for a second main function that's for displaying and testing a very small network.)
 */
 int main(int argc, char* argv[]) {
-	
-	 Network* network = new Network();
-
 	std::cout << "Neural Network from scratch" << std::endl;
 
 	std::vector<std::vector<float>> csv_data;
@@ -60,19 +54,17 @@ int main(int argc, char* argv[]) {
 	int n_hidden = 5;//org val 5		// how many neurons you want in the first layer
 
 	// test the implemented neural network
-	std::vector<float> scores = evaluate_network(network, csv_data, n_folds, l_rate, n_epoch, n_hidden);
+	std::vector<float> scores = evaluate_network(csv_data, n_folds, l_rate, n_epoch, n_hidden);
 
 	// calculate the mean average of the scores across each cross validation
 	float mean = std::accumulate(scores.begin(), scores.end(), decltype(scores)::value_type(0)) / static_cast<float>(scores.size());
 
 	std::cout << "Mean accuracy: " << mean << std::endl;
-	
-	save_network("network.txt");
 
 	return 0;
 }
 
-std::vector<float> evaluate_network(Network* network, std::vector<std::vector<float>> dataset, int n_folds, float l_rate, int n_epoch, int n_hidden) {
+std::vector<float> evaluate_network(std::vector<std::vector<float>> dataset, int n_folds, float l_rate, int n_epoch, int n_hidden) {
 
 	/* Split dataset into k folds */
 	
@@ -135,6 +127,7 @@ std::vector<float> evaluate_network(Network* network, std::vector<std::vector<fl
 		int n_inputs = train_set[0].size() - 1;
 
 		/* Backpropagation with stochastic gradient descent */
+		Network* network = new Network();
 		network->initialize_network(n_inputs, n_hidden, n_outputs);
 		network->train(train_set, l_rate, n_epoch, n_outputs);
 
@@ -221,32 +214,6 @@ std::vector<std::vector<float>> load_csv_data(std::string filename) {
 	return data;
 }
 
-void save_network(const std::string filename) {
-  std::ofstream outfile(filename);
-
-  // Speichere die Anzahl der Schichten
-  outfile << network.m_nLayers << std::endl;
-
-  // Speichere jede Schicht
-  for (const Layer& layer : network.m_layers) {
-    // Speichere die Anzahl der Neuronen in der Schicht
-    outfile << layer.m_neurons.size() << std::endl;
-
-    // Speichere jedes Neuron in der Schicht
-    for (const Neuron& neuron : layer.m_neurons) {
-      // Speichere die Anzahl der Gewichte des Neurons
-      outfile << neuron.m_nWeights << std::endl;
-
-      // Speichere die Gewichte des Neurons
-      for (float weight : neuron.m_weights) {
-        outfile << weight << " ";
-      }
-      outfile << std::endl;
-    }
-  }
-
-  outfile.close();
-}
 
 /*
 * // Comment out this main function to test the network on a very small dataset and visualize it
