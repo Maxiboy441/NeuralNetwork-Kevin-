@@ -38,7 +38,8 @@ public:
 	~Layer();
 
 	// return mutable reference to the neurons
-	std::vector<Neuron>& get_neurons(void) { return m_neurons; };
+	const std::vector<Neuron>& get_neurons() const { return m_neurons; }
+
 
 private:
 	void initNeurons(int n_neurons, int n_weights);
