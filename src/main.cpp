@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 	std::cout << "Neural Network from scratch" << std::endl;
 
 	std::vector<std::vector<float>> csv_data;
-	csv_data = load_csv_data("seeds_dataset.csv");
+	csv_data = load_csv_data("../data/seeds_dataset.csv");
 	
 	/*
 	* Normalize the last column (turning the outputs into values starting from 0 for the one-hot encoding in the end)
