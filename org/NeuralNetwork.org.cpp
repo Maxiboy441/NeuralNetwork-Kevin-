@@ -1,14 +1,10 @@
-#include "NeuralNetwork.h"
+#include "NeuralNetwork.org.h"
 
 #include <iostream>
 #include <cstdlib>
 #include <cmath>
 #include <ctime>
 #include <algorithm>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <iosfwd> // For forward declaration of iostream objects
 
 /* NEURON */
 
@@ -26,7 +22,7 @@ Neuron::Neuron(int n_weights) {
 /*
 * Neuron Destructor
 */
-Neuron::~Neuron(){
+Neuron::~Neuron() {
 	/*pass*/
 }
 
@@ -34,24 +30,24 @@ Neuron::~Neuron(){
 * Initialize weights
 */
 void Neuron::initWeights(int n_weights) {
-    // add random small weights (between 0 and 1)
-    for (int w = 0; w < n_weights; w++) {
-        m_weights.push_back(static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX));
-    }
+	// add random small weights (between 0 and 1)
+	for (int w = 0; w < n_weights; w++) {
+		m_weights.push_back(static_cast<float>(std::rand()) / static_cast<float>(RAND_MAX));
+	}
 }
 
 /* 
 * Calculate the activation of a neuron for a given input
 */
 void Neuron::activate(std::vector<float> inputs) {
-    // the last weight is assumed to be the bias
-    m_activation = m_weights[m_nWeights-1];
+	// the last weight is assumed to be the bias
+	m_activation = m_weights[m_nWeights-1];
 
-    // accumulate all weighted inputs
-    for (size_t i = 0; i < m_nWeights-1; i++)
-    {
-        m_activation += m_weights[i] * inputs[i];
-    }
+	// accumulate all weighted inputs
+	for (size_t i = 0; i < m_nWeights-1; i++)
+	{
+		m_activation += m_weights[i] * inputs[i];
+	}
 }
 
 /* 
@@ -66,19 +62,21 @@ void Neuron::transfer() {
 /*
 * Layer Constructor
 */
-
 Layer::Layer(int n_neurons, int n_weights) {
 	this->initNeurons(n_neurons, n_weights);
 }
 
+/*
+* Layer Destructor
+*/
 Layer::~Layer() {
-    /*pass*/
+	/*pass*/
 }
 
 void Layer::initNeurons(int n_neurons, int n_weights) {
-    for (int n = 0; n < n_neurons; n++) {
-        m_neurons.push_back(Neuron(n_weights));
-    }
+	for (int n = 0; n < n_neurons; n++) {
+		m_neurons.push_back(Neuron(n_weights));
+	}
 }
 
 
@@ -279,116 +277,4 @@ void Network::display_human() {
 		std::cout << std::endl;
 	}
 	std::cout << "}" << std::endl;
-}
-
-bool Network::save(const std::string& filename) {
-  std::ofstream file(filename);
-  if (!file.is_open()) {
-    std::cerr << "Error: Could not open file '" << filename << "' for saving the network." << std::endl;
-    return false;
-  }
-
-  // Save the number of layers
-  file << m_nLayers << std::endl;
-
-  // Save each layer
-  for (const auto& layer : m_layers) {
-    save_layer(layer, file);
-  }
-
-  file.close();
-  return true;
-}
-
-bool Network::load(const std::string& filename) {
-	/*
-  std::ifstream file(filename);
-  if (!file.is_open()) {
-    std::cerr << "Error: Could not open file '" << filename << "' for loading the network." << std::endl;
-    return false;
-  }
-
-  // Load the number of layers
-  std::string n_layers_str;
-  std::getline(file, n_layers_str);
-  m_nLayers = std::stoi(n_layers_str);
-
-  // Clear any existing layers (in case loading a different network)
-  m_layers.clear();
-
-  // Load each layer
-  for (int i = 0; i < m_nLayers; ++i) {
-    Layer layer;
-    load_layer(layer, file);
-    m_layers.push_back(layer);
-  }
-
-  file.close();
-  */
-  return true;
-}
-
-void Network::save_layer(const Layer& layer, std::ofstream& file) {
-	/*
-  // Save the number of neurons
-  file << layer.get_neurons().size() << std::endl;
-
-  // Save each neuron
-  for (const auto& neuron : layer.get_neurons()) {
-    const auto& weights = neuron.get_weights();
-
-    // Save the number of weights (bias is included)
-    file << weights.size() << std::endl;
-
-    // Save each weight
-    for (const float& weight : weights) {
-      file << weight << " ";
-    }
-
-    // Save the activation (not strictly necessary, but can be useful for debugging)
-    file << neuron.get_activation() << std::endl;
-  }
-  */
-}
-
-void Network::load_layer(Layer& layer, std::ifstream& file) {
-	/*
-  // Load the number of neurons
-  std::string n_neurons_str;
-  std::getline(file, n_neurons_str);
-  int n_neurons = std::stoi(n_neurons_str);
-
-  // Initialize the neurons
-  for (int i = 0; i < n_neurons; ++i) {
-    Neuron neuron;
-    load_weights(neuron.get_weights(), file);
-    // Load the activation (not strictly necessary, but can be useful for debugging)
-    std::string activation_str;
-	std::getline(file, activation_str);
-	float activation = std::stof(activation_str);
-
-    //neuron.set_activation(activation); // Add this function if needed
-
-    layer.get_neurons().push_back(neuron);
-  }
-  */
-}
-
-void Network::load_weights(std::vector<float>& weights, std::ifstream& file) {
-	/*
-  // Load the number of weights (bias is included)
-  std::string n_weights_str;
-  std::getline(file, n_weights_str);
-  int n_weights = std::stoi(n_weights_str);
-
-  // Clear any existing weights
-  weights.clear();
-
-  // Load each weight
-  for (int i = 0; i < n_weights; ++i) {
-    float weight;
-    file >> weight;
-    weights.push_back(weight);
-  }
-  */
 }

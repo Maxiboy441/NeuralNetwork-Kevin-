@@ -54,3 +54,7 @@ build/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json
 build/.cmake/api/v1/reply/index-2024-04-22T10-50-27-0987.json
 build/.cmake/api/v1/reply/target-NN-Debug-b18e8deecd00fd285570.json
 build/.cmake/api/v1/reply/toolchains-v1-7b3f28aa77dde7e72327.json
+build/.cmake/api/v1/reply/cache-v2-20c30b68d8dd3a5ef541.json
+build/.cmake/api/v1/reply/cmakeFiles-v1-47b06c20ec06899b1a4a.json
+build/.cmake/api/v1/reply/index-2024-04-23T09-13-08-0110.json
+build/CMakeFiles/NN.dir/NeuralNetwork.cpp.o
