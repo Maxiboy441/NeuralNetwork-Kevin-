@@ -1,24 +1,21 @@
 #include "Layer.h"
 
 #include <iostream>
-#include <cstdlib>
-#include <cmath>
-#include <ctime>
-#include <algorithm>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <iosfwd> // For forward declaration of iostream objects
-
 
 /* LAYER */
 
 /*
+* Default Constructor
+*/
+Layer::Layer() {
+    /*pass*/
+}
+
+/*
 * Layer Constructor
 */
-
 Layer::Layer(int n_neurons, int n_weights) {
-	this->initNeurons(n_neurons, n_weights);
+    this->initNeurons(n_neurons, n_weights);
 }
 
 Layer::~Layer() {
