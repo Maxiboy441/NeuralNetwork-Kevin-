@@ -1,117 +1,98 @@
-# Neuronales Netzwerk von Grund auf in C++
-Dieses Projekt implementiert ein einfaches neuronales Netzwerk in C++ ohne Verwendung externer Machine-Learning-Bibliotheken. Es bietet Funktionen zum Trainieren, Speichern und Laden des Netzwerks sowie zur Bewertung seiner Leistung auf einem gegebenen Datensatz.
+# Neural Network from Scratch in C++
+This project implements a simple neural network in C++ without using external machine learning libraries. It provides functions for training, saving, and loading the network, as well as evaluating its performance on a given dataset.
 
 ## Inhaltsverzeichnis
-Über das Projekt
-Funktionen
-Voraussetzungen
+About the Project
+Features
+Prerequisites
 Installation
-Verwendung
-Beispielausgabe
-Projektstruktur
-Mitwirkende
-Lizenz
+Usage
+Example Output
+Project Structure
+Contributors
+License
 
-## Über das Projekt
-Das Ziel dieses Projekts ist es, die Grundlagen neuronaler Netzwerke zu verstehen, indem ein Netzwerk von Grund auf in C++ implementiert wird. Es dient als Lernressource und bietet Einblicke in die Implementierung von Forward- und Backpropagation, Gewichtsanpassungen sowie in das Speichern und Laden von Modellen.
+## About the Project
+The goal of this project is to understand the basics of neural networks by implementing a network from scratch in C++. It serves as a learning resource and offers insights into the implementation of forward and backpropagation, weight adjustments, and saving and loading models.
 
-## Funktionen
-Eigenständiges neuronales Netzwerk: Keine externen Bibliotheken erforderlich.
-Speicher- und Ladefunktionen: Speichern Sie trainierte Modelle und laden Sie sie für zukünftige Vorhersagen.
-Leistungsbewertung: Vergleichen Sie die Genauigkeit des Netzwerks vor und nach dem Training.
-Benutzerinteraktion: Das Programm informiert den Benutzer über Leistungsänderungen und fragt, ob das Modell gespeichert werden soll.
+## Features
+* Standalone Neural Network: No external libraries required.
+* Save and Load Functions: Save trained models and load them for future predictions.
+* Performance Evaluation: Compare the accuracy of the network before and after training.
+* User Interaction: The program informs the user about performance changes and asks if the model should be saved.
 
-## Voraussetzungen
-C++ Compiler: Unterstützt mindestens C++11.
-CMake: Zum Bauen des Projekts.
-Standardbibliotheken: Keine zusätzlichen Bibliotheken erforderlich.
+## Prerequisites
+C++ Compiler: Supports at least C++11.
+CMake: For building the project.
+Standard Libraries: No additional libraries required.
 
 ## Installation
-Repository klonen
+Clone the repository
 
 ```
 git clone https://github.com/IhrBenutzername/NeuralNetwork.git
 cd NeuralNetwork
 ```
-Build-Verzeichnis erstellen und zum Verzeichnis navigieren
+Create a build directory and navigate to it
 
 ```
 mkdir build
 cd build
 ```
-Projekt mit CMake konfigurieren
+Configure the project with CMake
 
 ```
 cmake ..
 ```
-Projekt bauen
+Build the project
 
 ```
 make
 ```
 
-## Verwendung
-Nach erfolgreichem Build können Sie das Programm ausführen:
+## Usage
+After a successful build, you can run the program:
 
 ```
 ./NN
 ```
-Das Programm führt folgende Schritte aus:
+The program performs the following steps:
 
-Datensatz laden: Der Seeds-Datensatz wird aus dem Verzeichnis data/ geladen und normalisiert.
-
-Netzwerkinitialisierung oder -laden: Überprüft, ob ein gespeichertes Netzwerk vorhanden ist. Falls ja, wird es geladen; andernfalls wird ein neues Netzwerk initialisiert.
-
-Leistungsbewertung vor dem Training: Die Genauigkeit des Netzwerks wird auf dem Datensatz gemessen.
-
-Training des Netzwerks: Das Netzwerk wird mit den angegebenen Hyperparametern trainiert.
-
-Leistungsbewertung nach dem Training: Die Genauigkeit wird erneut gemessen und mit der vorherigen verglichen.
-
-Speicheroption: Der Benutzer wird gefragt, ob das trainierte Netzwerk gespeichert werden soll.
+- Load Dataset: The Seeds dataset is loaded from the data/ directory and normalized.
+- Initialize or Load Network: Checks if a saved network exists. If so, it is loaded; otherwise, a new network is initialized.
+- Performance Evaluation Before Training: The accuracy of the network is measured on the dataset.
+- Training the Network: The network is trained with the specified hyperparameters.
+- Performance Evaluation After Training: The accuracy is measured again and compared with the previous one.
+- Save Option: The user is asked whether to save the trained network.
 
 
-## Projektstruktur
-src/: Quellcode des Projekts.
-main.cpp: Hauptprogramm mit dem Ablauf des Netzwerks.
-NeuralNetwork.cpp/h: Implementierung des Netzwerks mit Speicher- und Ladefunktionen.
-Layer.cpp/h: Implementierung der Schichten des Netzwerks.
-Neuron.cpp/h: Implementierung der Neuronen.
-include/: Header-Dateien für das Projekt.
-data/: Datensatzdateien (z. B. seeds_dataset.csv).
-build/: Build-Verzeichnis (nach Erstellung).
-CMakeLists.txt: CMake-Build-Konfigurationsdatei.
+## Project Structure
+- src/: 
+    - Source code of the project.
+- include/:
+    - Header files for the project.
+- data/:
+    - Dataset files (e.g., seeds_dataset.csv).
+- build/:
+    - Build directory (after creation).
 
-## Anpassung der Hyperparameter
-Sie können die Hyperparameter des Netzwerks direkt in der main.cpp anpassen:
-
-n_hidden: Anzahl der Neuronen in der versteckten Schicht.
-l_rate: Lernrate für die Gewichtsanpassung.
-n_epoch: Anzahl der Epochen für das Training.
+## Adjusting Hyperparameters
+You can adjust the hyperparameters of the network directly in main.cpp:
+- n_hidden: Number of neurons in the hidden layer.
+- l_rate: Learning rate for weight adjustment.
+- n_epoch: Number of epochs for training.
 ```
-int n_hidden = 5;     // Anzahl der Neuronen in der versteckten Schicht
-float l_rate = 0.2f;  // Lernrate
-int n_epoch = 500;    // Anzahl der Trainingsdurchläufe
+int n_hidden = 5;   
+float l_rate = 0.2f;
+int n_epoch = 500;  
 ```
-## Daten vorbereiten
-Stellen Sie sicher, dass der Seeds-Datensatz im Verzeichnis data/ vorhanden ist und den Namen seeds_dataset.csv trägt. Der Pfad zum Datensatz wird in der main.cpp festgelegt:
+## Preparing Data
+Ensure that the Seeds dataset is present in the data/ directory and named seeds_dataset.csv. The path to the dataset is set in main.cpp:
 
 ```
 csv_data = load_csv_data("data/seeds_dataset.csv");
 ```
-Falls der Datensatz an einem anderen Ort liegt, passen Sie den Pfad entsprechend an.
+If the dataset is located elsewhere, adjust the path accordingly.
 
-## Mitwirkende
-Ihr Name - Initiale Arbeit - IhrGitHubBenutzername
-Lizenz
-Dieses Projekt ist unter der MIT-Lizenz lizenziert – Details finden Sie in der LICENSE-Datei.
-
-## Danksagung
-Inspiriert von Lernressourcen über neuronale Netzwerke und maschinelles Lernen.
-Besonderer Dank an alle Open-Source-Beiträge und Community-Mitglieder.
-
-## Kontakt
-Falls Sie Fragen haben oder einen Beitrag leisten möchten, können Sie mich gerne kontaktieren:
-
-E-Mail: kevin@hasike.de
-GitHub: @HasiKe
+# TODO
+- [ ] auto set learn rate
