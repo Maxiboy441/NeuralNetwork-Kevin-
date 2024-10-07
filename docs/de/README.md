@@ -1,7 +1,7 @@
 # Neuronales Netzwerk von Grund auf in C++
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/main/README.md)
-[![de](https://img.shields.io/badge/lang-de-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/dosc/de/README.md)
+[![de](https://img.shields.io/badge/lang-de-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/main/docs/de/README.md)
 
 
 <p>Dieses Projekt implementiert ein einfaches neuronales Netzwerk in C++ ohne Verwendung externer Machine-Learning-Bibliotheken. Es bietet Funktionen zum Trainieren, Speichern und Laden des Netzwerks sowie zur Bewertung seiner Leistung auf einem gegebenen Datensatz.</p>

@@ -1,7 +1,7 @@
 # Neural Network from Scratch in C++
 
 [![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/main/README.md)
-[![de](https://img.shields.io/badge/lang-de-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/dosc/de/README.md)
+[![de](https://img.shields.io/badge/lang-de-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/main/docs/de/README.md)
 
 <p> This project implements a simple neural network in C++ without using external machine learning libraries. It provides functions for training, saving, and loading the network, as well as evaluating its performance on a given dataset. <p>
 

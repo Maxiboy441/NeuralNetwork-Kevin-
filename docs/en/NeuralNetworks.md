@@ -1,8 +1,8 @@
 # Overview of Different Types of Neural Networks and Their Strengths and Weaknesses
 <a id="top"></a>
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/HasiKe/NeuralNetwork/docs/en/NeuralNetworks.md)
-[![de](https://img.shields.io/badge/lang-de-red.svg)](https://github.com/HasiKe/NeuralNetwork/docs/de/NeuralNetworks.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/main/docs/en/NeuralNetworks.md)
+[![de](https://img.shields.io/badge/lang-de-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/main/docs/de/NeuralNetworks.md)
 <br>
 
 ---

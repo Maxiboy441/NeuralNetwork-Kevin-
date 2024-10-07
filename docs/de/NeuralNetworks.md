@@ -1,8 +1,8 @@
 # Übersicht über verschiedene Arten von neuronalen Netzen und ihre Stärken und Schwächen
 <a id="top"></a>
 
-[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/HasiKe/NeuralNetwork/docs/en/NeuralNetworks.md)
-[![de](https://img.shields.io/badge/lang-de-red.svg)](https://github.com/HasiKe/NeuralNetwork/dosc/de/NeuralNetworks.md)
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/main/docs/en/NeuralNetworks.md)
+[![de](https://img.shields.io/badge/lang-de-red.svg)](https://github.com/HasiKe/NeuralNetwork/blob/main/docs/de/NeuralNetworks.md)
 <br>
 
 ---
