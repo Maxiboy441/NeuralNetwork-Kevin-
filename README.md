@@ -86,9 +86,9 @@ NeuralNetwork/
 Modify these values in `main.cpp`:
 
 ```cpp
-int n_hidden = 5;   // Number of neurons in hidden layer
-float l_rate = 0.2f; // Learning rate
-int n_epoch = 500;  // Number of training epochs
+int nHidden = 5;   // Number of neurons in hidden layer
+float learningRate = 0.2f; // Learning rate
+int nEpochs = 500;  // Number of training epochs
 ```
 
 ## 📊 Preparing Data
